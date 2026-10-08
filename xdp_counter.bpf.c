@@ -4,9 +4,9 @@
 #include <linux/tcp.h>
 #include <bpf/bpf_helpers.h>
 #include <bpf/bpf_endian.h>
-#include<netinet/in.h>
-#include<sys/socket.h>
-
+// #include<netinet/in.h>
+// #include<sys/socket.h>
+#include<linux/in.h>
 
 struct {
     __uint(type, BPF_MAP_TYPE_ARRAY);
@@ -53,6 +53,7 @@ int xdp_counter(struct xdp_md *ctx)
         count(1);
 
     return XDP_PASS;
+    
 }
 
 char LICENSE[] SEC("license") = "GPL";
